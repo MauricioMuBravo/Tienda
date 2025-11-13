@@ -1,139 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda Premium Online</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Penalmentes 2026</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Tienda Premium</h1>
-    <nav>
-      <ul>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#carrito">Carrito (<span id="cart-count">0</span>)</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Filtros de categorías -->
-  <div id="filters" class="filters">
-    <button data-category="all" class="filter-btn active">Todos</button>
-    <button data-category="Electrónica" class="filter-btn">Electrónica</button>
-    <button data-category="Hogar" class="filter-btn">Hogar</button>
-    <button data-category="Ropa" class="filter-btn">Ropa</button>
-    <button data-category="Accesorios" class="filter-btn">Accesorios</button>
+  <!-- Pantalla de manual -->
+  <div id="manual">
+    <h1>¡Juego de Penales!</h1>
+    <p>Cómo jugar:</p>
+    <ul>
+      <li>Contesta la pregunta correcta antes de tirar el penal.</li>
+      <li>La respuesta correcta define dónde irá el balón.</li>
+      <li>Si fallas, verás la explicación y podrás continuar.</li>
+      <li>Tienes 5 tiros y 3 vidas por ronda.</li>
+      <li>Sube niveles respondiendo correctamente: 5 niveles en total.</li>
+    </ul>
+    <button id="startBtn">Comenzar Juego</button>
   </div>
 
-  <!-- Productos -->
-  <main>
-    <section id="productos" class="products">
+  <!-- Interfaz -->
+  <div id="ui">
+    <p><strong>Penalmentes</strong></p>
+    <p>Nivel: <span id="nivel">1</span></p>
+    <p>Goles: <span id="goles">0</span> &nbsp; Tiros: <span id="tiros">0</span>/5 &nbsp; Vidas: <span id="vidas">3</span></p>
+  </div>
 
-      <!-- Electrónica -->
-      <div class="product" data-name="Auriculares Inalámbricos" data-price="550" data-description="Auriculares inalámbricos con cancelación de ruido, 20h de batería, bluetooth 5.0" data-category="Electrónica">
-        <img src="https://images.unsplash.com/photo-1580910051075-449f657e48ab?auto=format&fit=crop&w=400&q=80" alt="Auriculares">
-        <h3>Auriculares Inalámbricos</h3>
-        <p>$550</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <div class="product" data-name="Altavoz Bluetooth" data-price="750" data-description="Altavoz portátil con sonido estéreo y 12h de batería" data-category="Electrónica">
-        <img src="https://images.unsplash.com/photo-1606813903980-6b17ec80f8b7?auto=format&fit=crop&w=400&q=80" alt="Altavoz Bluetooth">
-        <h3>Altavoz Bluetooth</h3>
-        <p>$750</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <div class="product" data-name="Smartwatch" data-price="1200" data-description="Reloj inteligente con monitor de ritmo cardíaco, notificaciones y GPS" data-category="Electrónica">
-        <img src="https://images.unsplash.com/photo-1587825140503-7e9b17a01da1?auto=format&fit=crop&w=400&q=80" alt="Smartwatch">
-        <h3>Smartwatch</h3>
-        <p>$1200</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <!-- Hogar -->
-      <div class="product" data-name="Lámpara LED" data-price="350" data-description="Lámpara LED de escritorio, regulable y con ahorro de energía" data-category="Hogar">
-        <img src="https://images.unsplash.com/photo-1607082341411-45d9df9c8f8d?auto=format&fit=crop&w=400&q=80" alt="Lámpara LED">
-        <h3>Lámpara LED</h3>
-        <p>$350</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <div class="product" data-name="Cafetera" data-price="1200" data-description="Cafetera automática de cápsulas, 19 bares de presión" data-category="Hogar">
-        <img src="https://images.unsplash.com/photo-1585079548330-cf4bc92fa48f?auto=format&fit=crop&w=400&q=80" alt="Cafetera">
-        <h3>Cafetera</h3>
-        <p>$1200</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <div class="product" data-name="Robot Aspirador" data-price="2500" data-description="Robot aspirador inteligente, programable y con sensor anti-caídas" data-category="Hogar">
-        <img src="https://images.unsplash.com/photo-1613711247213-b2b37da82ce2?auto=format&fit=crop&w=400&q=80" alt="Robot Aspirador">
-        <h3>Robot Aspirador</h3>
-        <p>$2500</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <!-- Ropa -->
-      <div class="product" data-name="Camiseta Casual" data-price="220" data-description="Camiseta de algodón, cómoda y resistente" data-category="Ropa">
-        <img src="https://images.unsplash.com/photo-1618354695856-176f28e3c15e?auto=format&fit=crop&w=400&q=80" alt="Camiseta Casual">
-        <h3>Camiseta Casual</h3>
-        <p>$220</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <div class="product" data-name="Jeans Clásicos" data-price="450" data-description="Jeans de corte recto, lavados, disponibles en varias tallas" data-category="Ropa">
-        <img src="https://images.unsplash.com/photo-1618354696180-f0e3d85f3a1c?auto=format&fit=crop&w=400&q=80" alt="Jeans Clásicos">
-        <h3>Jeans Clásicos</h3>
-        <p>$450</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <!-- Accesorios -->
-      <div class="product" data-name="Bolso Elegante" data-price="800" data-description="Bolso de cuero, elegante y espacioso" data-category="Accesorios">
-        <img src="https://images.unsplash.com/photo-1620720343588-bf2f0c2c2e1f?auto=format&fit=crop&w=400&q=80" alt="Bolso Elegante">
-        <h3>Bolso Elegante</h3>
-        <p>$800</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-      <div class="product" data-name="Gorra Deportiva" data-price="150" data-description="Gorra ligera, ideal para deporte y sol" data-category="Accesorios">
-        <img src="https://images.unsplash.com/photo-1618354686754-cb12b1bca1e8?auto=format&fit=crop&w=400&q=80" alt="Gorra Deportiva">
-        <h3>Gorra Deportiva</h3>
-        <p>$150</p>
-        <button class="add-to-cart">Agregar al carrito</button>
-      </div>
-
-    </section>
-
-    <!-- Carrito -->
-    <section id="carrito" class="cart-items">
-      <h2>Carrito de Compras</h2>
-      <ul id="cart-list"></ul>
-      <p>Total: $<span id="cart-total">0</span></p>
-      <button id="buy-all" disabled>Comprar todo</button>
-    </section>
-
-    <!-- Botones de PayPal -->
-    <div id="paypal-button-container"></div>
-
-  </main>
-
-  <!-- Modal de producto -->
-  <div id="product-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modal-img" src="" alt="Producto">
-      <h3 id="modal-name"></h3>
-      <p id="modal-price"></p>
-      <p id="modal-description"></p>
-      <button id="modal-add-to-cart">Agregar al carrito</button>
+  <!-- Pregunta y opciones -->
+  <div id="question-container">
+    <p id="question"></p>
+    <div id="options">
+      <button class="option" data-dir="-2"></button>
+      <button class="option" data-dir="0"></button>
+      <button class="option" data-dir="2"></button>
     </div>
   </div>
 
-  <!-- PayPal SDK -->
-  <script src="https://www.paypal.com/sdk/js?client-id=AXgX0acQB2oRN63typEStneCo1U8ZwIuFIxw9Zz1aSCh23dZisN18IbHtu13jc3LOiJRY5Ndq76wncB6&currency=MXN&intent=capture&components=buttons,funding-eligibility"></script>
+  <!-- Modal de explicación -->
+  <div id="explanation">
+    <p id="explanation-text"></p>
+    <div style="text-align:center; margin-top:10px;">
+      <button id="continueBtn">Seguir Juego</button>
+      <button id="moreInfoBtn">Más Info</button>
+    </div>
+  </div>
+
+  <!-- Modal de fin de juego -->
+  <div id="game-over-modal" class="hidden">
+    <div class="modal-content">
+      <h2 id="game-over-msg"></h2>
+      <p>Goles: <span id="final-score"></span></p>
+      <button id="retryBtn">Volver a jugar</button>
+    </div>
+  </div>
+
+  <!-- Contenedor de botones flotantes -->
+  <div id="sound-controls">
+    <button id="muteCrowd">🔊 Silenciar público</button>
+    <button id="creditsBtn">👤 Créditos</button>
+  </div>
+
+  <!-- Portero -->
+  <img id="keeper" src="https://cdnpublicidad.milenio.com/2025/PublicidadEditorial/09.Septiembre/Mundial-2026/portero.png" alt="Portero">
+
+  <!-- Slider inferior tipo footer -->
+  <div class="sponsor-slider footer">
+    <div class="slide-track">
+      <a href="https://www.caliente.mx" target="_blank"><img src="https://cdnpublicidad.milenio.com/2025/PublicidadEditorial/09.Septiembre/Mundial-2026/Grupo_Caliente_Logo.png" alt="Caliente"></a>
+      <a href="https://www.milenio.com/" target="_blank"><img src="https://cdnpublicidad.milenio.com/2025/PublicidadEditorial/09.Septiembre/Mundial-2026/Milenio.png" alt="Milenio"></a>
+      <a href="https://www.codere.mx" target="_blank"><img src="https://cdnpublicidad.milenio.com/2025/PublicidadEditorial/09.Septiembre/Mundial-2026/Codere.png" alt="Codere"></a>
+      <a href="https://www.adidas.com" target="_blank"><img src="https://cdnpublicidad.milenio.com/2025/PublicidadEditorial/09.Septiembre/Mundial-2026/Adidas_Logo.png" alt="Adidas"></a>
+      <a href="https://www.coca-cola.com" target="_blank"><img src="https://cdnpublicidad.milenio.com/2025/PublicidadEditorial/09.Septiembre/Mundial-2026/Coca-Cola_logo.png" alt="Coca Cola"></a>
+    </div>
+  </div>
+
+  <!-- Modal de créditos -->
+  <div id="creditsModal" class="hidden">
+    <div class="modal-content">
+      <h2>Créditos</h2>
+      <p><strong>Proyecto:</strong> Penalmentes 2026</p>
+      <p><strong>Desarrollado:</strong> Mauricio Muñoz Bravo</p>
+      <p><strong>Diseñador:</strong> Jesus Mauricio Segura Herrera</p>
+      <p><strong>QA:</strong> Lorelei Ocampo Nieto</p>
+      <p><strong>Redacción:</strong> Mario Dominguez Martinez</p>
+      <button id="closeCreditsBtn">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/three@0.152.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
